@@ -20,6 +20,7 @@ import { setuserData } from "@/redux/userSlice"
 
 export function LoginForm({ className, ...props }) {
     const navigate = useNavigate();
+    const dispatch = useDispatch();
     const [errorMsg, setErrorMsg] = useState(null);
     const [loading, setLoading] = useState(false);
 
@@ -38,6 +39,7 @@ export function LoginForm({ className, ...props }) {
                         email
                     }, { withCredentials: true });
                     console.log("✅ Logged in:", response.data);
+                    dispatch(setuserData(response.data));
                     navigate("/");
                 }
             } catch (error) {
@@ -48,8 +50,7 @@ export function LoginForm({ className, ...props }) {
             }
         };
         handleRedirectResult();
-    }, [navigate]);
-    const dispatch = useDispatch();
+    }, [navigate, dispatch]);
     const handleGoogleLogin = async () => {
         setLoading(true);
         setErrorMsg(null);
@@ -63,7 +64,7 @@ export function LoginForm({ className, ...props }) {
                     name,
                     email
                 }, { withCredentials: true });
-                dispatch(setuserData(result.data));
+                dispatch(setuserData(response.data));
                 console.log("✅ Logged in:", response.data);
                 navigate("/");
             }

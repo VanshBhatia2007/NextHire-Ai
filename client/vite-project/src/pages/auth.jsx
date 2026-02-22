@@ -3,6 +3,7 @@ import { LoginForm } from "@/components/login-form"
 import { MdNextWeek } from "react-icons/md";
 import { HexagonBackground } from "@/components/animate-ui/components/backgrounds/hexagon"
 function Auth() {
+  
   return (
     <div className="dark flex min-h-svh w-full items-center justify-center p-6 md:p-10">
       <HexagonBackground className="absolute inset-0 -z-10 h-full w-full" />

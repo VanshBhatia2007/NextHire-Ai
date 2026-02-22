@@ -15,6 +15,8 @@ import axios from "axios"
 import { ServerUrl } from "@/App"
 import { useEffect, useState } from "react"
 import { useNavigate } from "react-router-dom"
+import { useDispatch } from "react-redux"
+import { setuserData } from "@/redux/userSlice"
 
 export function LoginForm({ className, ...props }) {
     const navigate = useNavigate();
@@ -47,7 +49,7 @@ export function LoginForm({ className, ...props }) {
         };
         handleRedirectResult();
     }, [navigate]);
-
+    const dispatch = useDispatch();
     const handleGoogleLogin = async () => {
         setLoading(true);
         setErrorMsg(null);
@@ -61,12 +63,15 @@ export function LoginForm({ className, ...props }) {
                     name,
                     email
                 }, { withCredentials: true });
+                dispatch(setuserData(result.data));
                 console.log("✅ Logged in:", response.data);
                 navigate("/");
             }
         } catch (error) {
             console.error("Google login error:", error);
             setErrorMsg(error.response?.data?.message || error.message || "Google Authentication failed");
+            dispatch(setuserData(null));
+
         } finally {
             setLoading(false);
         }

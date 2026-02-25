@@ -1,3 +1,4 @@
+import axios from "axios";
 export const askAi = async (messages) => {
     try {
         if (!messages || !Array.isArray(messages) || messages.length === 0) {
@@ -22,3 +23,4 @@ export const askAi = async (messages) => {
         throw new Error("Failed to get response from openRouter.ai API. Please try again later.");
     }
 }
+

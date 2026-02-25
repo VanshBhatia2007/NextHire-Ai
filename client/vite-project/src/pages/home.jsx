@@ -223,7 +223,7 @@ function Home() {
               className="flex flex-col sm:flex-row items-center justify-center gap-4 pt-4"
             >
               <Button 
-                onClick={() => window.location.href = "/auth"} 
+                onClick={() => window.location.href = "/interview"} 
                 className="w-full sm:w-auto h-12 px-8 bg-gradient-to-r from-violet-600 to-indigo-600 hover:from-violet-500 hover:to-indigo-500 text-white font-bold rounded-xl shadow-[0_0_20px_rgba(109,40,217,0.3)] transition-all hover:scale-105 active:scale-95 duration-200 cursor-pointer"
               >
                 Get Started Free

@@ -8,6 +8,7 @@ import { setuserData } from "./redux/userSlice";
 import AppNavbar from "./components/Navbar";
 import Footer from "./components/Footer";
 import Pricing from "./pages/pricing";
+import InterviewPage from "./pages/interviewPage";
 
 export const ServerUrl = "http://localhost:8000"
 
@@ -35,6 +36,7 @@ function App() {
         <Route path="/" element={<Home />} />
         <Route path="/auth" element={<Auth />} />
         <Route path="/pricing" element={<Pricing />} />
+        <Route path="/interview" element={<InterviewPage />} />
       </Routes>
       {!hideNavbar && <Footer />}
     </>

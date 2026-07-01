@@ -13,6 +13,7 @@ import { useState } from "react";
 const navItems = [
   { name: "Home", link: "/" },
   { name: "Jobs", link: "/jobs" },
+  { name: "Pricing", link: "/pricing" }
 ];
 
 export default function AppNavbar() {

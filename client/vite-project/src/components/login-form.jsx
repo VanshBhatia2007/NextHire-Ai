@@ -29,7 +29,7 @@ export function LoginForm({ className, ...props }) {
                     setLoading(true);
                     setErrorMsg(null);
                     const user = result.user;
-                    const name = user.displayName;
+                    const name = user.displayName || user.email.split("@")[0];
                     const email = user.email;
                     const response = await axios.post(ServerUrl + "/api/auth/google", {
                         name,
@@ -55,7 +55,7 @@ export function LoginForm({ className, ...props }) {
             const result = await signInWithPopup(auth, provider);
             if (result) {
                 const user = result.user;
-                const name = user.displayName;
+                const name = user.displayName || user.email.split("@")[0];
                 const email = user.email;
                 const response = await axios.post(ServerUrl + "/api/auth/google", {
                     name,
